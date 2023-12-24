@@ -23,6 +23,7 @@ myIterable[Symbol.iterator] = function () {
             } else {
                 return {done: true};
             }
+
         }
     }
 };

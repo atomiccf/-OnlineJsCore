@@ -1,17 +1,9 @@
 function isValidNumber(value) {
-    if (isNaN(value) || value === ''){
-    return false;
-    } else {
-    return true;
-    }
+    return !(isNaN(value) || value === '');
 }
 
 function isValidRadix (number) {
-    if (isValidNumber(number) && number >= 2 && number <= 36) {
-    return true;
-    } else {
-    return false;
-    }
+    return isValidNumber(number) && number >= 2 && number <= 36;
  }
 
 

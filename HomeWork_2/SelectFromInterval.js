@@ -1,17 +1,9 @@
 function isValidArray(array){
-    if (!Array.isArray(array) || array.some( item => typeof item !== 'number' ) || array.some( item =>  item < 0 )){
-    return false;
-    } else {
-    return true;
-    }
+    return !(!Array.isArray(array) || array.some(item => typeof item !== 'number') || array.some(item => item < 0));
 }
 
 function isValidIntervalNumber(number) {
-    if (typeof number !== 'number' || number < 0 ) {
-        return false;
-    } else {
-        return true;
-    }
+    return !(typeof number !== 'number' || number < 0);
 }
 
 function selectFromInterval(array, startInt, endInt) {

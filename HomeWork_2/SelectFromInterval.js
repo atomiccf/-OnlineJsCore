@@ -21,3 +21,4 @@ function selectFromInterval(array, startInt, endInt) {
         return  array.filter(item => item >= startInt && item <= endInt );
     }
 }
+

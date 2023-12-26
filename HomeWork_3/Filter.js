@@ -8,21 +8,22 @@ Array.prototype.myFilter = function (callback, thisArg) {
 
     for (let i=0; i< thisArg.length; i++) {
 
-     let result = callback(thisArg[i], i,thisArg)
+    if (callback(thisArg[i], i,thisArg)){
+    resultArr.push(thisArg[i]);
+    }
 
-     if (result){
-     resultArr.push(thisArg[i]);
-     }
 }
 
     return resultArr;
+
 };
 
-[1,2,2,1].myFilter((item, index, arr) =>{
+console.log([1,2,2,1].myFilter((item, index, arr) =>{
 
-  return item % 2 === 0
+    return item % 2 === 0;
 
-});
+}))
+
 
 
 

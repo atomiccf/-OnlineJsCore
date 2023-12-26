@@ -6,10 +6,13 @@ function makeObjectDeepCopy(object) {
     }
 
     for (let key in object){
-        if (object.hasOwnProperty(key)) {
-            copy[key] = makeObjectDeepCopy(object[key]);
-        }
+
+    if (object.hasOwnProperty(key)) {
+    copy[key] = makeObjectDeepCopy(object[key]);
     }
+
+    }
+
     return copy;
 }
 

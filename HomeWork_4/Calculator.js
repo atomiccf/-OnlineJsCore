@@ -5,36 +5,36 @@ function isValidNumber(number) {
 class Calculator {
 
     constructor(num_one, num_two) {
+    if ((num_one === undefined || num_two === undefined) || (isValidNumber(num_one) || isValidNumber(num_two)) ){
+    throw new Error('Не валидное число ');
+    }
 
-        if ((num_one === undefined || num_two === undefined) || (isValidNumber(num_one) || isValidNumber(num_two)) ){
-            throw new Error('Не валидное число ');
-        }
+    this.x = num_one;
+    this.y = num_two;
+    this.setX = this.setX.bind(this);
+    this.setY = this.setY.bind(this);
+    this.logSum = this.logSum.bind(this);
+    this.logMul = this.logMul.bind(this);
+    this.logSub = this.logSub.bind(this);
+    this.logDiv = this.logDiv.bind(this);
 
-        this.x = num_one;
-        this.y = num_two;
-        this.setX = this.setX.bind(this);
-        this.setY = this.setY.bind(this);
-        this.logSum = this.logSum.bind(this);
-        this.logMul = this.logMul.bind(this);
-        this.logSub = this.logSub.bind(this);
-        this.logDiv = this.logDiv.bind(this);
     }
 
     setX(num) {
 
-        if (isValidNumber(num)){
-        throw new Error('Не валидное число ');
-        }
+    if (isValidNumber(num)){
+    throw new Error('Не валидное число ');
+    }
 
-        this.x= num;
+    this.x= num;
     };
 
     setY(num) {
-        if (isValidNumber(num)){
-        throw new Error('Не валидное число ');
-        }
+    if (isValidNumber(num)){
+    throw new Error('Не валидное число ');
+    }
 
-        this.y = num;
+    this.y = num;
     };
 
     logSum() {

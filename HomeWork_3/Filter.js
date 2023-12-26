@@ -19,12 +19,6 @@ Array.prototype.myFilter = function (callback, thisArg) {
 
 };
 
-console.log([1,2,2,1].myFilter((item, index, arr) =>{
-
-    return item % 2 === 0;
-
-}))
-
 
 
 

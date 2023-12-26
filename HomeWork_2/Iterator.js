@@ -1,5 +1,5 @@
 function isValidNumber(number) {
-    return !(typeof number !== 'number' || number === undefined);
+    return !(typeof number !== 'number' || false);
 }
 
 const myIterable = {};

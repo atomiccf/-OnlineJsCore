@@ -3,7 +3,7 @@ function isValidArray(array){
     }
 
 function isValidIntervalNumber(number) {
-    return  number >= 0 && !isNaN(number);
+    return !(isNaN(number) || isFinite(number));
     }
 
 function selectFromInterval(array, startInt, endInt) {
@@ -24,4 +24,4 @@ function selectFromInterval(array, startInt, endInt) {
     }
 }
 
-console.log(typeof NaN)
+

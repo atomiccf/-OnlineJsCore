@@ -1,5 +1,5 @@
 function isValidNumber(value) {
-    return value === value.trim().length && !isNaN(value);
+    return value === value.trim().length || !isNaN(value);
 }
 
 function isValidRadix (number) {
@@ -35,3 +35,4 @@ function calculateStringToNumber() {
     return  `${Number(firstNumber) + Number(secondNumber)},${Number(firstNumber) / Number(secondNumber)}`
 }
 
+console.log(isValidNumber('  '))

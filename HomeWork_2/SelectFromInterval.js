@@ -1,9 +1,9 @@
 function isValidArray(array){
-    return (Array.isArray(array) && array.every(item => typeof item === 'number' && item >= 0));
+    return (Array.isArray(array) && array.every(item => !isNaN(item) && item >= 0));
     }
 
 function isValidIntervalNumber(number) {
-    return typeof number === 'number' && number >= 0;
+    return  number >= 0 && !isNaN(number);
     }
 
 function selectFromInterval(array, startInt, endInt) {
@@ -24,4 +24,4 @@ function selectFromInterval(array, startInt, endInt) {
     }
 }
 
-
+console.log(typeof NaN)

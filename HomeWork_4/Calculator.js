@@ -1,5 +1,5 @@
 function isValidNumber(number) {
-    return typeof number === 'number' && isFinite(number);
+    return  isFinite(number) && !isNaN(number);
 }
 
 class Calculator {

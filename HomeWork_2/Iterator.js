@@ -1,8 +1,8 @@
 function isValidNumber(number) {
-   return typeof number === 'number' && isFinite(number);
+   return  isFinite(number) && !isNaN(number);
 }
 
-const myIterable = {};
+const myIterable = {from:'aaa',to:4};
 myIterable[Symbol.iterator] = function () {
    return {
    current: this.from,

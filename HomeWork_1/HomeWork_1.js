@@ -1,5 +1,5 @@
 function isValidNumber(value) {
-    return !(isNaN(value) || value === value.trim().length);
+    return value === value.trim().length && !isNaN(value);
 }
 
 function isValidRadix (number) {

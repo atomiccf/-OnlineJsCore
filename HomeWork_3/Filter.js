@@ -1,21 +1,21 @@
-Array.prototype.myFilter = function (callback, thisArg) {
+Array.prototype.myFilter = function (callback, thisArr) {
 
     if (typeof callback !== 'function'){
     throw new Error(`${callback} not a function!`);
     }
 
-    let resultArr =[];
-    thisArg = this;
+    let resultArray =[];
+    thisArr = this;
 
-    for (let i=0; i< thisArg.length; i++) {
+    for (let i=0; i< thisArr.length; i++) {
 
-    if (callback(thisArg[i], i,thisArg)){
-    resultArr.push(thisArg[i]);
+    if (callback(thisArr[i], i,thisArr)){
+    resultArray.push(thisArr[i]);
     }
 
     }
 
-    return resultArr;
+    return resultArray;
 };
 
 

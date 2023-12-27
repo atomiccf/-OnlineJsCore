@@ -1,10 +1,10 @@
 function isValidArray(array){
-    return !(!Array.isArray(array) || array.some(item => typeof item !== 'number') || array.some(item => item < 0));
-}
+    return (Array.isArray(array) && array.every(item => typeof item === 'number' && item >= 0));
+    }
 
 function isValidIntervalNumber(number) {
-    return !(typeof number !== 'number' || number < 0);
-}
+    return typeof number === 'number' && number >= 0;
+    }
 
 function selectFromInterval(array, startInt, endInt) {
     if(!isValidArray(array)) {
@@ -23,4 +23,5 @@ function selectFromInterval(array, startInt, endInt) {
     return  array.filter(item => item >= startInt && item <= endInt );
     }
 }
+
 

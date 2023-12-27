@@ -1,5 +1,5 @@
 function isValidString (string){
-   return typeof string === "string";
+   return typeof string === "string" ;
 }
 
 function concatStrings(str,separator) {

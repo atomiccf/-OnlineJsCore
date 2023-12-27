@@ -1,11 +1,11 @@
 function isValidNumber(number) {
-    return !(typeof number !== "number" || false);
+    return typeof number === 'number' && isFinite(number);
 }
 
 class Calculator {
 
     constructor(num_one, num_two) {
-    if ((num_one === undefined || num_two === undefined) || (isValidNumber(num_one) || isValidNumber(num_two)) ){
+    if ( !isValidNumber(num_one) || !isValidNumber(num_two) ){
     throw new Error('Не валидное число ');
     }
 
@@ -22,7 +22,7 @@ class Calculator {
 
     setX(num) {
 
-    if (isValidNumber(num)){
+    if (!isValidNumber(num)){
     throw new Error('Не валидное число ');
     }
 
@@ -30,7 +30,7 @@ class Calculator {
     };
 
     setY(num) {
-    if (isValidNumber(num)){
+    if (!isValidNumber(num)){
     throw new Error('Не валидное число ');
     }
 
@@ -51,14 +51,16 @@ class Calculator {
 
     logDiv() {
 
-    if (this.y === 0) {
-    throw new Error('Делить на 0 нельзя');
+    if (this.y !== 0) {
+     return this.x / this.y;
+    } else {
+    throw new Error('Ошибка !');
     }
 
-    return this.x / this.y;
+
   };
 }
 
-
+const calc = new Calculator()
 
 

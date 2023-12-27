@@ -1,5 +1,5 @@
 function isValidNumber(number) {
-   return !(typeof number !== 'number' || isNaN(number) && isFinite(number));
+   return typeof number === 'number' && !isNaN(number) && isFinite(number);
 }
 
 class Calculator {
@@ -61,8 +61,5 @@ class Calculator {
   };
 }
 
-const calc = new Calculator(25,25)
-
-calc.setY(444n)
 
 

@@ -1,27 +1,28 @@
 const CURRENT_YEAR = new Date().getFullYear()
 
 function isFuelValid(fuel) {
- return typeof fuel === 'number' || fuel >= 0;
+    return typeof fuel === 'number' || fuel >= 0;
 }
 
 function isSpeedValid(speed) {
     return typeof speed === 'number' || speed >= 0;
 }
+
 function isTimeValid(hour) {
     return typeof hour === 'number' || hour >= 0;
 }
 
 function isStringValid(value) {
-    return typeof value === 'string' && (value.length >= 1 && value.length <= 50) && ! value.includes(' ');
+    return typeof value === 'string' && (value.length >= 1 && value.length <= 50) && !value.includes(' ');
 }
 
 function isYearValid(value) {
-    if (typeof value === 'number' && (value >= 1900 && value <= `${CURRENT_YEAR}`)){
+    if (typeof value === 'number' && (value >= 1900 && value <= `${CURRENT_YEAR}`)) {
         return true;
     } else {
         return false;
     }
-    return ;
+
 }
 
 function isMaxSpeedValid(value) {

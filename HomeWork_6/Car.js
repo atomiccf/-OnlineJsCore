@@ -1,83 +1,83 @@
-const { isFuelValid, isSpeedValid, isTimeValid,isStringValid, isYearValid, isMaxSpeedValid } = require('./validation');
+const {isFuelValid, isSpeedValid, isTimeValid, isStringValid, isYearValid, isMaxSpeedValid} = require('./validation');
 
 class Car {
 
-         _brand = null;
-         _model = null;
-         _yearOfManufacturing = 0;
-         _maxSpeed = 0;
-         _maxFuelVolume = 0; /*(число в литрах от 5 до 20)*/
-         _fuelConsumption = 0;
-         _currentFuelVolume = 0; /*(число в литрах, по умолчанию 0)*/
-         _isStarted = false; /*(логический тип, по умолчанию false)*/
-         _mileage = 0; /*(число в километрах, по умолчанию 0)*/
+    _brand = null;
+    _model = null;
+    _yearOfManufacturing = 0;
+    _maxSpeed = 0;
+    _maxFuelVolume = 0; /*(число в литрах от 5 до 20)*/
+    _fuelConsumption = 0;
+    _currentFuelVolume = 0; /*(число в литрах, по умолчанию 0)*/
+    _isStarted = false; /*(логический тип, по умолчанию false)*/
+    _mileage = 0; /*(число в километрах, по умолчанию 0)*/
 
 
-    start(){
-        if (this._isStarted){
+    start() {
+        if (this._isStarted) {
             throw new Error('Машина уже заведена');
         } else {
             this._isStarted = true;
         }
     };
 
-    shutDownEngine(){
-    if (this._isStarted){
-    this._isStarted = false;
-    } else {
-    throw new Error('Машина ещё не заведена');
-    }
+    shutDownEngine() {
+        if (this._isStarted) {
+            this._isStarted = false;
+        } else {
+            throw new Error('Машина ещё не заведена');
+        }
     };
 
-    fillUpGasTank(fuel){
+    fillUpGasTank(fuel) {
 
-    if (!isFuelValid(fuel)) {
-    throw new Error('Неверное количество топлива для заправки');
-    }
+        if (!isFuelValid(fuel)) {
+            throw new Error('Неверное количество топлива для заправки');
+        }
 
-    if (this._currentFuelVolume > this._maxFuelVolume){
-    throw new Error('Топливный бак переполнен');
-    } else {
-    this._currentFuelVolume += fuel;
-    }
+        if (this._currentFuelVolume > this._maxFuelVolume) {
+            throw new Error('Топливный бак переполнен');
+        } else {
+            this._currentFuelVolume += fuel;
+        }
     };
 
-    drive(speed,hours){
+    drive(speed, hours) {
 
-    if (!isSpeedValid(speed)) {
-    throw new Error('Неверная скорость');
-    }
+        if (!isSpeedValid(speed)) {
+            throw new Error('Неверная скорость');
+        }
 
-    if (speed > this._maxSpeed){
-    throw new Error('Машина не может ехать так быстро');
-    }
+        if (speed > this._maxSpeed) {
+            throw new Error('Машина не может ехать так быстро');
+        }
 
-    if (!isTimeValid(hours)) {
-    throw new Error('Неверное количество часов');
-    }
+        if (!isTimeValid(hours)) {
+            throw new Error('Неверное количество часов');
+        }
 
-    if (!this._isStarted) {
-    throw new Error('Машина должна быть заведена, чтобы ехать');
-    }
+        if (!this._isStarted) {
+            throw new Error('Машина должна быть заведена, чтобы ехать');
+        }
 
-    const requiredFuel = (speed / 100) * hours;
+        const requiredFuel = (speed / 100) * hours;
 
-    if (requiredFuel > this._currentFuelVolume) {
-    throw new Error('Недостаточно топлива');
-    }
+        if (requiredFuel > this._currentFuelVolume) {
+            throw new Error('Недостаточно топлива');
+        }
 
-    this._currentFuelVolume -= requiredFuel;
-    this._mileage += speed * hours;
+        this._currentFuelVolume -= requiredFuel;
+        this._mileage += speed * hours;
     };
 
-    get getBrand(){
+    get getBrand() {
 
-    if (this._brand === '') {
-    throw new Error('Бренд не введен');
-    } else {
+        if (this._brand === '') {
+            throw new Error('Бренд не введен');
+        } else {
 
-    return this._brand;
-    }
+            return this._brand;
+        }
     };
 
     set setBrand(value) {
@@ -88,27 +88,27 @@ class Car {
         }
     };
 
-    get getModel () {
+    get getModel() {
 
-    if (this._model === null) {
-    throw new Error('Модель не введена');
-    } else {
+        if (this._model === null) {
+            throw new Error('Модель не введена');
+        } else {
 
-    return this._model;
-    }
+            return this._model;
+        }
     };
 
     set setModel(value) {
 
-    if (!isStringValid(value)) {
-    throw new Error('строка от 1 до 50 символов включительно');
-    } else {
-    this._model = value;
-    }
+        if (!isStringValid(value)) {
+            throw new Error('строка от 1 до 50 символов включительно');
+        } else {
+            this._model = value;
+        }
 
     };
 
-    get getYearOfManufacturing () {
+    get getYearOfManufacturing() {
 
         if (this._yearOfManufacturing === null) {
             throw new Error('Год не введен');
@@ -119,7 +119,7 @@ class Car {
 
     };
 
-    set setYearOfManufacturing (value) {
+    set setYearOfManufacturing(value) {
 
         if (!isYearValid(value)) {
             throw new Error('число от 1900 до текущего года включительно');
@@ -129,18 +129,18 @@ class Car {
 
     };
 
-    get getMaxSpeed () {
+    get getMaxSpeed() {
 
-    if (this._maxSpeed === 0) {
+        if (this._maxSpeed === 0) {
             throw new Error('Не верная максимальная скорость');
-    } else {
+        } else {
 
-    return this._maxSpeed;
-    }
+            return this._maxSpeed;
+        }
 
     };
 
-    set setMaxSpeed (value) {
+    set setMaxSpeed(value) {
 
         if (!isMaxSpeedValid(value)) {
             throw new Error('число от 100 до 300 км/ч');
@@ -150,7 +150,7 @@ class Car {
 
     };
 
-    get getMaxFuelVolume () {
+    get getMaxFuelVolume() {
 
         if (this._maxFuelVolume === 0) {
             throw new Error('Максимальное количество топлива не указано');
@@ -161,7 +161,7 @@ class Car {
 
     };
 
-    set setMaxFuelVolume (value) {
+    set setMaxFuelVolume(value) {
 
         if (!isMaxSpeedValid(value)) {
             throw new Error('число от 100 до 300 км/ч');
@@ -173,7 +173,6 @@ class Car {
 
 
 }
-
 
 
 const car = new Car()

@@ -17,12 +17,7 @@ function isStringValid(value) {
 }
 
 function isYearValid(value) {
-    if (typeof value === 'number' && (value >= 1900 && value <= `${CURRENT_YEAR}`)) {
-        return true;
-    } else {
-        return false;
-    }
-
+    return typeof value === 'number' && (value >= 1900 && value <= `${CURRENT_YEAR}`);
 }
 
 function isMaxSpeedValid(value) {

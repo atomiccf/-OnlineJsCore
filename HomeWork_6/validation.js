@@ -24,6 +24,10 @@ function isMaxSpeedValid(value) {
     return typeof value === 'number' && (value >= 100 && value <= 300);
 }
 
+function isNumberValid(value) {
+    return typeof value === 'number' && !isNaN(value) && isFinite(value);
+}
+
 
 module.exports = {
     isFuelValid,
@@ -32,4 +36,5 @@ module.exports = {
     isStringValid,
     isYearValid,
     isMaxSpeedValid,
+    isNumberValid
 }

@@ -1,74 +1,16 @@
-const {isFuelValid, isSpeedValid, isTimeValid, isStringValid, isYearValid, isMaxSpeedValid} = require('./validation');
+const {isFuelValid, isSpeedValid, isTimeValid, isStringValid, isYearValid, isMaxSpeedValid, isNumberValid  } = require('./validation');
 
 class Car {
 
     _brand = null;
     _model = null;
-    _yearOfManufacturing = 0;
+    _yearOfManufacturing = null;
     _maxSpeed = 0;
-    _maxFuelVolume = 0; /*(число в литрах от 5 до 20)*/
+    _maxFuelVolume = 0;
     _fuelConsumption = 0;
-    _currentFuelVolume = 0; /*(число в литрах, по умолчанию 0)*/
-    _isStarted = false; /*(логический тип, по умолчанию false)*/
-    _mileage = 0; /*(число в километрах, по умолчанию 0)*/
-
-
-    start() {
-        if (this._isStarted) {
-            throw new Error('Машина уже заведена');
-        } else {
-            this._isStarted = true;
-        }
-    };
-
-    shutDownEngine() {
-        if (this._isStarted) {
-            this._isStarted = false;
-        } else {
-            throw new Error('Машина ещё не заведена');
-        }
-    };
-
-    fillUpGasTank(fuel) {
-
-        if (!isFuelValid(fuel)) {
-            throw new Error('Неверное количество топлива для заправки');
-        }
-
-        if (this._currentFuelVolume > this._maxFuelVolume) {
-            throw new Error('Топливный бак переполнен');
-        } else {
-            this._currentFuelVolume += fuel;
-        }
-    };
-
-    drive(speed, hours) {
-
-        if (!isSpeedValid(speed)) {
-            throw new Error('Неверная скорость');
-        }
-
-        if (speed > this._maxSpeed) {
-            throw new Error('Машина не может ехать так быстро');
-        }
-
-        if (!isTimeValid(hours)) {
-            throw new Error('Неверное количество часов');
-        }
-
-        if (!this._isStarted) {
-            throw new Error('Машина должна быть заведена, чтобы ехать');
-        }
-
-        const requiredFuel = (speed / 100) * hours;
-
-        if (requiredFuel > this._currentFuelVolume) {
-            throw new Error('Недостаточно топлива');
-        }
-
-        this._currentFuelVolume -= requiredFuel;
-        this._mileage += speed * hours;
-    };
+    _currentFuelVolume = 0;
+    _isStarted = false;
+    _mileage = 0;
 
     get getBrand() {
 
@@ -169,13 +111,103 @@ class Car {
             this._maxSpeed = value;
         }
 
-    }
+    };
 
+    get getFuelConsumption () {
 
+        if (this._fuelConsumption === 0) {
+            throw new Error('Расход  топлива не указан');
+        } else {
+
+            return this._fuelConsumption;
+        }
+
+    };
+
+    set setFuelConsumption(value) {
+
+        if (!isNumberValid(value)) {
+            throw new Error('число ');
+        } else {
+            this._fuelConsumption = value / 100;
+        }
+
+    };
+
+    get getCurrentFuelVolume (){
+        return this._currentFuelVolume;
+    };
+
+    get getIsStarted  (){
+        return this._isStarted;
+    };
+
+    get getIsStarted  (){
+        return this._isStarted;
+    };
+
+    get getMileage   (){
+        return this._mileage;
+    };
+
+    start() {
+        if (this._isStarted) {
+            throw new Error('Машина уже заведена');
+        } else {
+            this._isStarted = true;
+        }
+    };
+
+    shutDownEngine() {
+        if (this._isStarted) {
+            this._isStarted = false;
+        } else {
+            throw new Error('Машина ещё не заведена');
+        }
+    };
+
+    fillUpGasTank(fuel) {
+
+        if (!isFuelValid(fuel)) {
+            throw new Error('Неверное количество топлива для заправки');
+        }
+
+        if (this._currentFuelVolume > this._maxFuelVolume) {
+            throw new Error('Топливный бак переполнен');
+        } else {
+            this._currentFuelVolume += fuel;
+        }
+    };
+
+    drive(speed, hours) {
+
+        if (!isSpeedValid(speed)) {
+            throw new Error('Неверная скорость');
+        }
+
+        if (speed > this._maxSpeed) {
+            throw new Error('Машина не может ехать так быстро');
+        }
+
+        if (!isTimeValid(hours)) {
+            throw new Error('Неверное количество часов');
+        }
+
+        if (!this._isStarted) {
+            throw new Error('Машина должна быть заведена, чтобы ехать');
+        }
+
+        const requiredFuel = (speed / 100) * hours;
+
+        if (requiredFuel > this._currentFuelVolume) {
+            throw new Error('Недостаточно топлива');
+        }
+
+        this._currentFuelVolume -= requiredFuel;
+        this._mileage += speed * hours;
+    };
 }
 
 
-const car = new Car()
-car.setMaxSpeed = 300;
 
 

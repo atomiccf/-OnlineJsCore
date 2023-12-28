@@ -16,10 +16,8 @@ function selectFromInterval(array, startInt, endInt) {
     }
 
     if (startInt > endInt) {
-
         return array.filter(item => item >= endInt && item <= startInt);
     } else {
-
         return array.filter(item => item >= startInt && item <= endInt);
     }
 }

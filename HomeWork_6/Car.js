@@ -83,7 +83,6 @@ class Car {
     };
 
     set setMaxSpeed(value) {
-
         if (!isMaxSpeedValid(value)) {
             throw new Error('число от 100 до 300 км/ч');
         } else {
@@ -104,7 +103,6 @@ class Car {
     };
 
     set setMaxFuelVolume(value) {
-
         if (!isMaxSpeedValid(value)) {
             throw new Error('число от 100 до 300 км/ч');
         } else {
@@ -114,18 +112,15 @@ class Car {
     };
 
     get getFuelConsumption () {
-
         if (this._fuelConsumption === 0) {
             throw new Error('Расход  топлива не указан');
         } else {
-
             return this._fuelConsumption;
         }
 
     };
 
     set setFuelConsumption(value) {
-
         if (!isNumberValid(value)) {
             throw new Error('число ');
         } else {
@@ -167,20 +162,18 @@ class Car {
     };
 
     fillUpGasTank(fuel) {
-
         if (!isFuelValid(fuel)) {
             throw new Error('Неверное количество топлива для заправки');
         }
 
         if (this._currentFuelVolume > this._maxFuelVolume) {
             throw new Error('Топливный бак переполнен');
-        } else {
-            this._currentFuelVolume += fuel;
         }
+
+        this._currentFuelVolume += fuel;
     };
 
     drive(speed, hours) {
-
         if (!isSpeedValid(speed)) {
             throw new Error('Неверная скорость');
         }

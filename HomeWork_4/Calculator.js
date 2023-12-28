@@ -21,7 +21,6 @@ class Calculator {
     }
 
     setX(num) {
-
         if (!isValidNumber(num)) {
             throw new Error('Не валидное число ');
         }
@@ -50,7 +49,6 @@ class Calculator {
     };
 
     logDiv() {
-
         if (this.y !== 0) {
             return this.x / this.y;
         } else {

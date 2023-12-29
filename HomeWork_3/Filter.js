@@ -1,5 +1,4 @@
 Array.prototype.myFilter = function (callback, thisArr) {
-
     if (typeof callback !== 'function') {
         throw new Error(`${callback} not a function!`);
     }
@@ -12,7 +11,6 @@ Array.prototype.myFilter = function (callback, thisArr) {
             resultArray.push(thisArr[i]);
         }
     }
-
     return resultArray;
 };
 

@@ -107,6 +107,7 @@ function removeNum() {
         }else {
             document.getElementById("calc_output").innerHTML = Number(y).toFixed(8);
         }
+
     } else if (finish) {
         let removedNumber = x.toString().split('');
         removedNumber.pop();

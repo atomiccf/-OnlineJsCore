@@ -8,15 +8,15 @@ function getNumber (num) {
     if (y ==='' && sign === null){
         x += num;
         console.log(x)
-        document.getElementById("calc_output").innerHTML = x;
+        document.getElementById("calc_output").innerHTML = Number(x).toFixed(8);
     }else if (x !== '' && y !== '' && finish){
         finish = false;
         y = num;
 
-        document.getElementById("calc_output").innerHTML = y;
+        document.getElementById("calc_output").innerHTML = Number(y).toFixed(8);
     }else {
         y += num;
-        document.getElementById("calc_output").innerHTML = y;
+        document.getElementById("calc_output").innerHTML = Number(y).toFixed(8);
     }
 }
 
@@ -34,25 +34,25 @@ function getResult(){
     if (y === ''){
     y = x;
     x = Number(x) + Number(y)
-    document.getElementById("calc_output").innerHTML = x;
+    document.getElementById("calc_output").innerHTML = Number(x).toFixed(8);
     }
 
     finish = true;
     switch(sign){
         case '+':
             x = Number(x) + Number(y)
-            document.getElementById("calc_output").innerHTML = x;
+            document.getElementById("calc_output").innerHTML = Number(x).toFixed(8);
             break;
 
         case '-':
             x = Number(x) - Number(y)
-            document.getElementById("calc_output").innerHTML = x;
+            document.getElementById("calc_output").innerHTML = Number(x).toFixed(8);
             break;
 
 
         case '*':
             x = Number(x) * Number(y)
-            document.getElementById("calc_output").innerHTML = x;
+            document.getElementById("calc_output").innerHTML = Number(x).toFixed(8);
             break;
 
         case '/':
@@ -61,12 +61,11 @@ function getResult(){
             }
 
             x = Number(x) / Number(y)
-            document.getElementById("calc_output").innerHTML = x;
+            document.getElementById("calc_output").innerHTML = Number(x).toFixed(8);
             break;
 
     }
-    console.log('result ' + x)
-}
+ }
 
 function clearResult(){
     x = '';
@@ -95,7 +94,7 @@ function removeNum() {
         if (x === ''){
             document.getElementById("calc_output").innerHTML = '0';
         }else {
-            document.getElementById("calc_output").innerHTML = x;
+            document.getElementById("calc_output").innerHTML = Number(x).toFixed(8);
         }
 
     } else if (x !== '' && sign !== null && !finish) {
@@ -106,7 +105,7 @@ function removeNum() {
         if (y === ''){
             document.getElementById("calc_output").innerHTML = '0';
         }else {
-            document.getElementById("calc_output").innerHTML = y;
+            document.getElementById("calc_output").innerHTML = Number(y).toFixed(8);
         }
     } else if (finish) {
         let removedNumber = x.toString().split('');
@@ -116,7 +115,7 @@ function removeNum() {
         if (x === ''){
             document.getElementById("calc_output").innerHTML = '0';
         }else {
-            document.getElementById("calc_output").innerHTML = x;
+            document.getElementById("calc_output").innerHTML = Number(x).toFixed(8);
         }
     }
 

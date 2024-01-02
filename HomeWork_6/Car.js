@@ -2,15 +2,15 @@ const {isFuelValid, isSpeedValid, isTimeValid, isStringValid, isYearValid, isMax
 
 class Car {
 
-    _brand = null;
-    _model = null;
-    _yearOfManufacturing = null;
-    _maxSpeed = 0;
-    _maxFuelVolume = 0;
-    _fuelConsumption = 0;
-    _currentFuelVolume = 0;
-    _isStarted = false;
-    _mileage = 0;
+    #brand = null;
+    #model = null;
+    #yearOfManufacturing = null;
+    #maxSpeed = 0;
+    #maxFuelVolume = 0;
+    #fuelConsumption = 0;
+    #currentFuelVolume = 0;
+    #isStarted = false;
+    #mileage = 0;
 
     get getBrand() {
 
@@ -200,7 +200,3 @@ class Car {
         this._mileage += speed * hours;
     };
 }
-
-
-
-

@@ -3,7 +3,6 @@ function isValidString(string) {
 }
 
 function concatStrings(str, separator) {
-
     return function (next) {
 
         if (next === undefined || !isValidString(next)) {

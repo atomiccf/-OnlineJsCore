@@ -8,15 +8,20 @@ function getNumber (num) {
     if (y ==='' && sign === null){
         x += num;
         console.log(x)
-        document.getElementById("calc_output").innerHTML = Number(x).toFixed(8);
+        document.getElementById("calc_output").innerHTML = x;
+
     }else if (x !== '' && y !== '' && finish){
         finish = false;
-        y = num;
 
-        document.getElementById("calc_output").innerHTML = Number(y).toFixed(8);
+        y = num;
+        console.log(y)
+
+        document.getElementById("calc_output").innerHTML = y;
     }else {
         y += num;
-        document.getElementById("calc_output").innerHTML = Number(y).toFixed(8);
+        console.log(y)
+
+        document.getElementById("calc_output").innerHTML = y;
     }
 }
 
@@ -34,33 +39,57 @@ function getResult(){
     if (y === ''){
     y = x;
     x = Number(x) + Number(y)
+
+    if (Number.isInteger(y)) {
     document.getElementById("calc_output").innerHTML = Number(x).toFixed(8);
+    }
+    document.getElementById("calc_output").innerHTML = x;
+
     }
 
     finish = true;
     switch(sign){
         case '+':
-            x = Number(x) + Number(y)
+            x = Number(x) + Number(y);
+
+            if (Number.isInteger(x)) {
+                document.getElementById("calc_output").innerHTML = x;
+            }
+
             document.getElementById("calc_output").innerHTML = Number(x).toFixed(8);
             break;
 
         case '-':
-            x = Number(x) - Number(y)
+            x = Number(x) - Number(y);
+
+            if (Number.isInteger(x)) {
+                document.getElementById("calc_output").innerHTML = x;
+            }
+
             document.getElementById("calc_output").innerHTML = Number(x).toFixed(8);
             break;
 
 
         case '*':
-            x = Number(x) * Number(y)
+            x = Number(x) * Number(y);
+
+            if (Number.isInteger(x)) {
+                document.getElementById("calc_output").innerHTML = x;
+            }
+
             document.getElementById("calc_output").innerHTML = Number(x).toFixed(8);
             break;
 
         case '/':
             if (Number(y) === 0){
-            document.getElementById("calc_output").innerHTML = "Err"
+            document.getElementById("calc_output").innerHTML = "Err";
             }
 
-            x = Number(x) / Number(y)
+            if (Number.isInteger(x)) {
+                document.getElementById("calc_output").innerHTML = x;
+            }
+
+            x = Number(x) / Number(y);
             document.getElementById("calc_output").innerHTML = Number(x).toFixed(8);
             break;
 
@@ -69,7 +98,7 @@ function getResult(){
 
 function clearResult(){
     x = '';
-    y = ''
+    y = '';
     sign =null;
     document.getElementById("calc_output").innerHTML = '0';
 }

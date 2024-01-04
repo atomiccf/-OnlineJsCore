@@ -3,7 +3,6 @@ function isValidNumber(number) {
 }
 
 class Calculator {
-
     constructor(num_one, num_two) {
         if (!isValidNumber(num_one) || !isValidNumber(num_two)) {
             throw new Error('Не валидное число ');

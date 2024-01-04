@@ -32,22 +32,25 @@
 
 
     <div class='calc_cell'>
-        <input class='sing' type="button" value="/" onclick="getSing('/')">
-        <input class='sing' type="button" value="*" onclick="getSing('*')">
-        <input type='button' value="=" onclick="getResult()">
-        <input class='clear' type="button" value="CE" onclick="clearResult()">
+        <input class='sing' type="button" value="/">
+        <input class='sing' type="button" value="*">
+        <input class="result button" type='button' value="=">
+        <input class='clear' type="button" value="CE">
 
     </div>
     <div class='calc_cell'>
         <input class='double button' type="button" value="." >
         <input class="backspace button" type='button' value="&larr;" >
-        <input class="button" type='button' value="+ / -" >
+        <input class="change button" type='button' value="+ / -" >
     </div>
 
 
 
 </div>
 
-<script  src="index.js"></script>
+
+<script type="module" src="index.js"></script>
+<script type="module" src="Calculator.js"></script>
+
 </body>
 </html>

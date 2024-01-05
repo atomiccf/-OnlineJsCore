@@ -16,7 +16,6 @@ class Calculator {
         this.logMul = this.logMul.bind(this);
         this.logSub = this.logSub.bind(this);
         this.logDiv = this.logDiv.bind(this);
-
     }
 
     setX(num) {
@@ -53,8 +52,6 @@ class Calculator {
         } else {
             throw new Error('Ошибка !');
         }
-
-
     };
 }
 

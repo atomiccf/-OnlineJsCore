@@ -1,7 +1,6 @@
 const {isFuelValid, isSpeedValid, isTimeValid, isStringValid, isYearValid, isMaxSpeedValid, isNumberValid  } = require('./validation');
 
 class Car {
-
     #brand = null;
     #model = null;
     #yearOfManufacturing = null;
@@ -13,11 +12,9 @@ class Car {
     #mileage = 0;
 
     get getBrand() {
-
         if (this._brand === '') {
             throw new Error('Бренд не введен');
         } else {
-
             return this._brand;
         }
     };
@@ -31,55 +28,44 @@ class Car {
     };
 
     get getModel() {
-
         if (this._model === null) {
             throw new Error('Модель не введена');
         } else {
-
             return this._model;
         }
     };
 
     set setModel(value) {
-
         if (!isStringValid(value)) {
             throw new Error('строка от 1 до 50 символов включительно');
         } else {
             this._model = value;
         }
-
     };
 
     get getYearOfManufacturing() {
-
         if (this._yearOfManufacturing === null) {
             throw new Error('Год не введен');
         } else {
 
             return this._yearOfManufacturing;
         }
-
     };
 
     set setYearOfManufacturing(value) {
-
         if (!isYearValid(value)) {
             throw new Error('число от 1900 до текущего года включительно');
         } else {
             this._yearOfManufacturing = value;
         }
-
     };
 
     get getMaxSpeed() {
-
         if (this._maxSpeed === 0) {
             throw new Error('Не верная максимальная скорость');
         } else {
-
             return this._maxSpeed;
         }
-
     };
 
     set setMaxSpeed(value) {
@@ -88,18 +74,14 @@ class Car {
         } else {
             this._maxSpeed = value;
         }
-
     };
 
     get getMaxFuelVolume() {
-
         if (this._maxFuelVolume === 0) {
             throw new Error('Максимальное количество топлива не указано');
         } else {
-
             return this._maxFuelVolume;
         }
-
     };
 
     set setMaxFuelVolume(value) {
@@ -108,7 +90,6 @@ class Car {
         } else {
             this._maxSpeed = value;
         }
-
     };
 
     get getFuelConsumption () {
@@ -117,7 +98,6 @@ class Car {
         } else {
             return this._fuelConsumption;
         }
-
     };
 
     set setFuelConsumption(value) {
@@ -126,7 +106,6 @@ class Car {
         } else {
             this._fuelConsumption = value / 100;
         }
-
     };
 
     get getCurrentFuelVolume (){

@@ -14,98 +14,97 @@ class Car {
     get getBrand() {
         if (this._brand === '') {
             throw new Error('Бренд не введен');
-        } else {
-            return this._brand;
         }
+
+        return this._brand;
     };
 
     set setBrand(value) {
         if (!isStringValid(value)) {
             throw new Error('строка от 1 до 50 символов включительно');
-        } else {
-            this._brand = value;
         }
+
+        this._brand = value;
     };
 
     get getModel() {
         if (this._model === null) {
             throw new Error('Модель не введена');
-        } else {
-            return this._model;
         }
+
+        return this._model;
     };
 
     set setModel(value) {
         if (!isStringValid(value)) {
             throw new Error('строка от 1 до 50 символов включительно');
-        } else {
-            this._model = value;
         }
+
+        this._model = value;
     };
 
     get getYearOfManufacturing() {
         if (this._yearOfManufacturing === null) {
             throw new Error('Год не введен');
-        } else {
-
-            return this._yearOfManufacturing;
         }
+
+        return this._yearOfManufacturing;
     };
 
     set setYearOfManufacturing(value) {
         if (!isYearValid(value)) {
             throw new Error('число от 1900 до текущего года включительно');
-        } else {
-            this._yearOfManufacturing = value;
         }
+
+        this._yearOfManufacturing = value;
     };
 
     get getMaxSpeed() {
         if (this._maxSpeed === 0) {
             throw new Error('Не верная максимальная скорость');
-        } else {
-            return this._maxSpeed;
         }
+
+        return this._maxSpeed;
     };
 
     set setMaxSpeed(value) {
         if (!isMaxSpeedValid(value)) {
             throw new Error('число от 100 до 300 км/ч');
-        } else {
-            this._maxSpeed = value;
         }
+
+        this._maxSpeed = value;
     };
 
     get getMaxFuelVolume() {
         if (this._maxFuelVolume === 0) {
             throw new Error('Максимальное количество топлива не указано');
-        } else {
-            return this._maxFuelVolume;
         }
+
+        return this._maxFuelVolume;
     };
 
     set setMaxFuelVolume(value) {
         if (!isMaxSpeedValid(value)) {
             throw new Error('число от 100 до 300 км/ч');
-        } else {
-            this._maxSpeed = value;
         }
+
+        this._maxSpeed = value;
     };
 
     get getFuelConsumption () {
         if (this._fuelConsumption === 0) {
             throw new Error('Расход  топлива не указан');
-        } else {
-            return this._fuelConsumption;
         }
+
+        return this._fuelConsumption;
     };
 
     set setFuelConsumption(value) {
         if (!isNumberValid(value)) {
             throw new Error('число ');
-        } else {
-            this._fuelConsumption = value / 100;
         }
+
+        this._fuelConsumption = value / 100;
     };
 
     get getCurrentFuelVolume (){
@@ -127,17 +126,17 @@ class Car {
     start() {
         if (this._isStarted) {
             throw new Error('Машина уже заведена');
-        } else {
-            this._isStarted = true;
         }
+
+        this._isStarted = true;
     };
 
     shutDownEngine() {
-        if (this._isStarted) {
-            this._isStarted = false;
-        } else {
-            throw new Error('Машина ещё не заведена');
+        if (!this._isStarted) {
+        throw new Error('Машина ещё не заведена');
         }
+
+        this._isStarted = false;
     };
 
     fillUpGasTank(fuel) {

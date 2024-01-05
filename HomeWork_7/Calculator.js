@@ -7,7 +7,7 @@ export default class Calculator {
 
     get getX() {
         return this.#x;
-    };
+    }
 
     set setFinish(bool) {
         this.#endMulti = bool
@@ -15,11 +15,11 @@ export default class Calculator {
 
     get getY() {
         return this.#y;
-    };
+    }
 
     get getSign() {
         return this.#sign;
-    };
+    }
 
     getNumber(num) {
         if (this.#y === '' && this.#sign === null) {
@@ -36,7 +36,7 @@ export default class Calculator {
             this.#y += num;
         }
 
-    };
+    }
 
     addSign(str) {
         this.#sign = str;
@@ -48,7 +48,7 @@ export default class Calculator {
             this.#y = '';
         }
 
-    };
+    }
 
     getResult() {
         if (this.#y === '') {
@@ -61,15 +61,33 @@ export default class Calculator {
         switch (this.#sign) {
             case '+':
                 this.#x = Number(this.#x) + Number(this.#y);
-                return this.#x;
+
+                if (Number.isInteger(this.#x)){
+                    return  this.#x
+                }
+
+                return Number(this.#x).toFixed(8);
+
 
             case '-':
                 this.#x = Number(this.#x) - Number(this.#y);
-                return this.#x;
+
+                if (Number.isInteger(this.#x)){
+                    return  this.#x
+                }
+
+                return Number(this.#x).toFixed(8);
+
 
             case '*':
                 this.#x = Number(this.#x) * Number(this.#y);
-                return this.#x;
+
+                if (Number.isInteger(this.#x)){
+                    return  this.#x
+                }
+
+                return Number(this.#x).toFixed(8);
+
 
             case '/':
                 if (Number(this.#y) === 0) {
@@ -77,10 +95,16 @@ export default class Calculator {
                 }
 
                 this.#x = Number(this.#x) / Number(this.#y);
-                return this.#x;
+
+                if (Number.isInteger(this.#x)){
+                    return  this.#x
+                }
+
+                return Number(this.#x).toFixed(8);
+
         }
 
-    };
+    }
 
     clearResult() {
         this.#x = '';
@@ -92,11 +116,18 @@ export default class Calculator {
 
     toDouble(num) {
         if ((this.#y === '' && this.#sign === null) || (this.#x !== '' && this.#sign !== null)) {
-            this.getNumber(num);
+               if (this.getX.includes('.') || this.getY.includes('.')){
+                   return;
+               }
+               this.getNumber(num);
         }
-    };
+    }
 
     removeNum() {
+        if (this.#x === ""){
+            return 0;
+        }
+
         if (this.#x !== '' && this.#sign === null) {
             let removedNumber = this.#x.split('');
             removedNumber.pop();
@@ -131,7 +162,7 @@ export default class Calculator {
             }
         }
 
-    };
+    }
 
     changeNumberSign() {
         if (this.#endMulti) {
@@ -145,5 +176,5 @@ export default class Calculator {
             return this.#x = this.#x * -1;
         }
 
-    };
+    }
 }

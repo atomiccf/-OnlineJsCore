@@ -18,6 +18,7 @@ buttonNumber.forEach(item => {
             if (calc.getX === '') {
                 document.getElementById("calc_output").innerHTML = 0;
             } else {
+
                 document.getElementById("calc_output").innerHTML = calc.getX;
             }
 

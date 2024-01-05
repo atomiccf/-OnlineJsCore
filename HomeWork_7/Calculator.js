@@ -3,42 +3,49 @@ export default class Calculator {
     #y = '';
     #finish = false;
     #sign = null;
+    #endMulti = false
 
-    get getX (){
+    get getX() {
         return this.#x;
     };
 
-    get getY (){
+    set setFinish(bool) {
+        this.#endMulti = bool
+    }
+
+    get getY() {
         return this.#y;
     };
 
-    get getSign (){
+    get getSign() {
         return this.#sign;
     };
 
-    getNumber (num) {
-        if (this.#y ==='' && this.#sign === null){
+    getNumber(num) {
+        if (this.#y === '' && this.#sign === null) {
             if (num === '0') {
                 this.#x = ''
             } else {
                 this.#x += num;
             }
 
-        }else if (this.#x !== '' && this.#y !== '' && this.#finish){
+        } else if (this.#x !== '' && this.#y !== '' && this.#finish) {
             this.#finish = false;
             this.#y = num;
         } else {
             this.#y += num;
-
         }
 
     };
 
-    addSign (str) {
+    addSign(str) {
         this.#sign = str;
 
-        if (this.#x !== '' && this.#y !== '' && this.#finish !== null){
-           this.#y='';
+        if (this.#x !== '' && this.#y !== '' && !this.#endMulti) {
+            this.getResult();
+            this.#y = '';
+        } else {
+            this.#y = '';
         }
 
     };
@@ -46,10 +53,9 @@ export default class Calculator {
     getResult() {
         if (this.#y === '') {
             this.#y = this.#x;
-            return (this.#x = Number(this.#x) + Number(this.#y));
+            return this.#x = Number(this.#x) + Number(this.#y);
         }
-
-        this.#finish = true;
+        console.log('go')
         switch (this.#sign) {
             case '+':
                 this.#x = Number(this.#x) + Number(this.#y);
@@ -71,15 +77,18 @@ export default class Calculator {
                 this.#x = Number(this.#x) / Number(this.#y);
                 return this.#x;
         }
+
+        this.#finish = true;
+
     };
 
-    clearResult(){
+    clearResult() {
         this.#x = '';
         this.#y = '';
-        this.#sign =null;
+        this.#sign = null;
 
         return '0';
-     }
+    }
 
     toDouble(num) {
         if ((this.#y === '' && this.#sign === null) || (this.#x !== '' && this.#sign !== null)) {
@@ -94,10 +103,10 @@ export default class Calculator {
             removedNumber.pop();
             this.#x = removedNumber.join('');
 
-            if (this.#x === ''){
-                return  '0';
-            }else {
-               return this.getX
+            if (this.#x === '') {
+                return '0';
+            } else {
+                return this.getX
             }
 
         } else if (this.#x !== '' && this.#sign !== null && !this.#finish) {
@@ -105,9 +114,9 @@ export default class Calculator {
             removedNumber.pop();
             this.#y = removedNumber.join('');
 
-            if (this.#y === ''){
-               return  '0';
-            }else {
+            if (this.#y === '') {
+                return '0';
+            } else {
                 return this.getY;
             }
 
@@ -116,9 +125,9 @@ export default class Calculator {
             removedNumber.pop();
             this.#x = removedNumber.join('');
 
-            if (this.#x === ''){
-                return  '0';
-            }else {
+            if (this.#x === '') {
+                return '0';
+            } else {
                 return this.getX;
             }
         }
@@ -126,12 +135,15 @@ export default class Calculator {
     };
 
     changeNumberSign() {
-        if (this.#y ==='' && this.#sign === null){
-        return  this.#x = this.#x * -1;
-        }else if (this.#x !== '' && this.#sign !== null && !this.#finish) {
-            return  this.#y = this.#y * -1;
-        } else if (this.#finish) {
-            return this.getX * -1
+        if (this.#endMulti) {
+            return this.#x = this.#x * -1;
+        }
+
+        if (this.#y === '' && this.#sign === null) {
+            console.log(1)
+            return this.#x = this.#x * -1;
+        } else {
+            return this.#x = this.#x * -1;
         }
 
     };

@@ -29,7 +29,9 @@ buttonNumber.forEach(item => {
 });
 
 buttonSign.forEach(item => {
+    let clicks = 0
     item.addEventListener('click', (e) => {
+        console.log(clicks++)
         calc.addSign(e.currentTarget.value);
         document.getElementById("calc_output").innerHTML = calc.getSign;
     });
@@ -37,6 +39,7 @@ buttonSign.forEach(item => {
 
 
 buttonResult.addEventListener('click', () => {
+    calc.setFinish = true;
     document.getElementById("calc_output").innerHTML = calc.getResult();
 });
 
@@ -45,7 +48,7 @@ buttonDouble.addEventListener('click', (e) => {
 });
 
 buttonClear.addEventListener('click', () => {
-    document.getElementById("calc_output").innerHTML = calc.clearResult();
+     document.getElementById("calc_output").innerHTML = calc.clearResult();
 });
 
 buttonBackspace.addEventListener('click', () => {
@@ -54,7 +57,10 @@ buttonBackspace.addEventListener('click', () => {
 });
 
 buttonChangeSign.addEventListener('click', () => {
-    document.getElementById("calc_output").innerHTML = calc.changeNumberSign();
+    console.log('+')
+
+    document.getElementById("calc_output").textContent = calc.changeNumberSign();
+
 })
 
 

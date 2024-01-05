@@ -80,8 +80,6 @@ export default class Calculator {
                 return this.#x;
         }
 
-
-
     };
 
     clearResult() {
@@ -96,7 +94,6 @@ export default class Calculator {
         if ((this.#y === '' && this.#sign === null) || (this.#x !== '' && this.#sign !== null)) {
             this.getNumber(num);
         }
-
     };
 
     removeNum() {

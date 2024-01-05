@@ -55,7 +55,9 @@ export default class Calculator {
             this.#y = this.#x;
             return this.#x = Number(this.#x) + Number(this.#y);
         }
-        console.log('go')
+
+        this.#finish = true;
+
         switch (this.#sign) {
             case '+':
                 this.#x = Number(this.#x) + Number(this.#y);
@@ -78,7 +80,7 @@ export default class Calculator {
                 return this.#x;
         }
 
-        this.#finish = true;
+
 
     };
 

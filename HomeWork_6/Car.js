@@ -17,7 +17,7 @@ class Car {
         }
 
         return this._brand;
-    };
+    }
 
     set setBrand(value) {
         if (!isStringValid(value)) {
@@ -25,7 +25,7 @@ class Car {
         }
 
         this._brand = value;
-    };
+    }
 
     get getModel() {
         if (this._model === null) {
@@ -33,7 +33,7 @@ class Car {
         }
 
         return this._model;
-    };
+    }
 
     set setModel(value) {
         if (!isStringValid(value)) {
@@ -41,7 +41,7 @@ class Car {
         }
 
         this._model = value;
-    };
+    }
 
     get getYearOfManufacturing() {
         if (this._yearOfManufacturing === null) {
@@ -49,7 +49,7 @@ class Car {
         }
 
         return this._yearOfManufacturing;
-    };
+    }
 
     set setYearOfManufacturing(value) {
         if (!isYearValid(value)) {
@@ -57,7 +57,7 @@ class Car {
         }
 
         this._yearOfManufacturing = value;
-    };
+    }
 
     get getMaxSpeed() {
         if (this._maxSpeed === 0) {
@@ -65,7 +65,7 @@ class Car {
         }
 
         return this._maxSpeed;
-    };
+    }
 
     set setMaxSpeed(value) {
         if (!isMaxSpeedValid(value)) {
@@ -73,7 +73,7 @@ class Car {
         }
 
         this._maxSpeed = value;
-    };
+    }
 
     get getMaxFuelVolume() {
         if (this._maxFuelVolume === 0) {
@@ -81,7 +81,7 @@ class Car {
         }
 
         return this._maxFuelVolume;
-    };
+    }
 
     set setMaxFuelVolume(value) {
         if (!isMaxSpeedValid(value)) {
@@ -89,7 +89,7 @@ class Car {
         }
 
         this._maxSpeed = value;
-    };
+    }
 
     get getFuelConsumption () {
         if (this._fuelConsumption === 0) {
@@ -97,7 +97,7 @@ class Car {
         }
 
         return this._fuelConsumption;
-    };
+    }
 
     set setFuelConsumption(value) {
         if (!isNumberValid(value)) {
@@ -105,23 +105,23 @@ class Car {
         }
 
         this._fuelConsumption = value / 100;
-    };
+    }
 
     get getCurrentFuelVolume (){
         return this._currentFuelVolume;
-    };
+    }
 
     get getIsStarted  (){
         return this._isStarted;
-    };
+    }
 
     get getIsStarted  (){
         return this._isStarted;
-    };
+    }
 
     get getMileage   (){
         return this._mileage;
-    };
+    }
 
     start() {
         if (this._isStarted) {
@@ -129,7 +129,7 @@ class Car {
         }
 
         this._isStarted = true;
-    };
+    }
 
     shutDownEngine() {
         if (!this._isStarted) {
@@ -137,7 +137,7 @@ class Car {
         }
 
         this._isStarted = false;
-    };
+    }
 
     fillUpGasTank(fuel) {
         if (!isFuelValid(fuel)) {
@@ -149,7 +149,7 @@ class Car {
         }
 
         this._currentFuelVolume += fuel;
-    };
+    }
 
     drive(speed, hours) {
         if (!isSpeedValid(speed)) {
@@ -176,5 +176,5 @@ class Car {
 
         this._currentFuelVolume -= requiredFuel;
         this._mileage += speed * hours;
-    };
+    }
 }

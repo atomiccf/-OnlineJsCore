@@ -70,7 +70,6 @@ class Stack {
         }
 
         const stack = new Stack();
-        stack.size = object.length;
 
         for (let item of object) {
             stack.push(item);

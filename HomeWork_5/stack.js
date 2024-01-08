@@ -34,6 +34,7 @@ class Stack {
         }
 
         const removedNode = this.#top;
+
         this.#top = removedNode.next;
         this.#sizeNode--;
 

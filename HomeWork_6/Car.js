@@ -13,7 +13,7 @@ class Car {
 
     get getBrand() {
         if (this._brand === '') {
-            throw new Error('Бренд не введен');
+            throw new Error('Бренд не введен !');
         }
 
         return this._brand;
@@ -21,7 +21,7 @@ class Car {
 
     set setBrand(value) {
         if (!isStringValid(value)) {
-            throw new Error('строка от 1 до 50 символов включительно');
+            throw new Error('строка от 1 до 50 символов включительно !');
         }
 
         this._brand = value;
@@ -29,7 +29,7 @@ class Car {
 
     get getModel() {
         if (this._model === null) {
-            throw new Error('Модель не введена');
+            throw new Error('Модель не введена !');
         }
 
         return this._model;
@@ -37,7 +37,7 @@ class Car {
 
     set setModel(value) {
         if (!isStringValid(value)) {
-            throw new Error('строка от 1 до 50 символов включительно');
+            throw new Error('строка от 1 до 50 символов включительно !');
         }
 
         this._model = value;
@@ -45,7 +45,7 @@ class Car {
 
     get getYearOfManufacturing() {
         if (this._yearOfManufacturing === null) {
-            throw new Error('Год не введен');
+            throw new Error('Год не введен !');
         }
 
         return this._yearOfManufacturing;
@@ -53,7 +53,7 @@ class Car {
 
     set setYearOfManufacturing(value) {
         if (!isYearValid(value)) {
-            throw new Error('число от 1900 до текущего года включительно');
+            throw new Error('число от 1900 до текущего года включительно !');
         }
 
         this._yearOfManufacturing = value;
@@ -61,7 +61,7 @@ class Car {
 
     get getMaxSpeed() {
         if (this._maxSpeed === 0) {
-            throw new Error('Не верная максимальная скорость');
+            throw new Error('Не верная максимальная скорость !');
         }
 
         return this._maxSpeed;
@@ -69,7 +69,7 @@ class Car {
 
     set setMaxSpeed(value) {
         if (!isMaxSpeedValid(value)) {
-            throw new Error('число от 100 до 300 км/ч');
+            throw new Error('число от 100 до 300 км/ч !');
         }
 
         this._maxSpeed = value;
@@ -77,7 +77,7 @@ class Car {
 
     get getMaxFuelVolume() {
         if (this._maxFuelVolume === 0) {
-            throw new Error('Максимальное количество топлива не указано');
+            throw new Error('Максимальное количество топлива не указано !');
         }
 
         return this._maxFuelVolume;
@@ -85,7 +85,7 @@ class Car {
 
     set setMaxFuelVolume(value) {
         if (!isMaxSpeedValid(value)) {
-            throw new Error('число от 100 до 300 км/ч');
+            throw new Error('число от 100 до 300 км/ч !');
         }
 
         this._maxSpeed = value;
@@ -93,7 +93,7 @@ class Car {
 
     get getFuelConsumption () {
         if (this._fuelConsumption === 0) {
-            throw new Error('Расход  топлива не указан');
+            throw new Error('Расход  топлива не указан !');
         }
 
         return this._fuelConsumption;
@@ -125,7 +125,7 @@ class Car {
 
     start() {
         if (this._isStarted) {
-            throw new Error('Машина уже заведена');
+            throw new Error('Машина уже заведена !');
         }
 
         this._isStarted = true;
@@ -133,7 +133,7 @@ class Car {
 
     shutDownEngine() {
         if (!this._isStarted) {
-        throw new Error('Машина ещё не заведена');
+        throw new Error('Машина ещё не заведена !');
         }
 
         this._isStarted = false;
@@ -141,11 +141,11 @@ class Car {
 
     fillUpGasTank(fuel) {
         if (!isFuelValid(fuel)) {
-            throw new Error('Неверное количество топлива для заправки');
+            throw new Error('Неверное количество топлива для заправки !');
         }
 
         if (this._currentFuelVolume > this._maxFuelVolume) {
-            throw new Error('Топливный бак переполнен');
+            throw new Error('Топливный бак переполнен !');
         }
 
         this._currentFuelVolume += fuel;
@@ -153,25 +153,25 @@ class Car {
 
     drive(speed, hours) {
         if (!isSpeedValid(speed)) {
-            throw new Error('Неверная скорость');
+            throw new Error('Неверная скорость !');
         }
 
         if (speed > this._maxSpeed) {
-            throw new Error('Машина не может ехать так быстро');
+            throw new Error('Машина не может ехать так быстро !');
         }
 
         if (!isTimeValid(hours)) {
-            throw new Error('Неверное количество часов');
+            throw new Error('Неверное количество часов !');
         }
 
         if (!this._isStarted) {
-            throw new Error('Машина должна быть заведена, чтобы ехать');
+            throw new Error('Машина должна быть заведена, чтобы ехать !');
         }
 
         const requiredFuel = (speed / 100) * hours;
 
         if (requiredFuel > this._currentFuelVolume) {
-            throw new Error('Недостаточно топлива');
+            throw new Error('Недостаточно топлива !');
         }
 
         this._currentFuelVolume -= requiredFuel;

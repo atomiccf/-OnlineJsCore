@@ -128,6 +128,7 @@ export default class Calculator {
 
         if (this.#x !== '' && this.#sign === null) {
             let removedNumber = this.#x.split('');
+
             removedNumber.pop();
             this.#x = removedNumber.join('');
 
@@ -138,6 +139,7 @@ export default class Calculator {
             return this.getX;
         } else if (this.#x !== '' && this.#sign !== null && !this.#finish) {
             let removedNumber = this.#y.split('');
+
             removedNumber.pop();
             this.#y = removedNumber.join('');
 
@@ -148,6 +150,7 @@ export default class Calculator {
              return this.getY;
         } else if (this.#finish) {
             let removedNumber = this.#x.toString().split('');
+
             removedNumber.pop();
             this.#x = removedNumber.join('');
 

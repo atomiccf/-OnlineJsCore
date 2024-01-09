@@ -8,41 +8,43 @@
 <body>
 <div class='calc_container'>
     <div id='calc_output'></div>
-    <div class="calc_cell">
-        <input class="number" type="button" value="0" >
+    <div id="number_cell" class="calc_cell">
         <input class="number" type="button" value="1" >
         <input class="number" type="button" value="2" >
         <input class="number" type="button" value="3" >
-    </div>
-
-    <div class='calc_cell'>
         <input class='number' type='button' value="4" >
         <input class='number' type='button' value="5" >
         <input class='number' type='button' value="6" >
         <input class='number' type="button" value="7" >
-    </div>
-
-
-    <div class='calc_cell'>
         <input class='number' type="button" value="8">
         <input class='number' type="button" value="9">
-        <input class='sing' type="button" value="+">
-        <input class='sing' type="button" value="-">
+        <input id="zero" class="number " type="button" value="0" >
+    </div>
+
+    <!--<div class='calc_cell'>
+
     </div>
 
 
     <div class='calc_cell'>
+
+    </div>-->
+
+
+    <div id="sign_cell" class='calc_cell'>
+        <input class='sing' type="button" value="+">
+        <input class='sing' type="button" value="-">
         <input class='sing' type="button" value="/">
         <input class='sing' type="button" value="*">
         <input class="result button" type='button' value="=">
         <input class='clear' type="button" value="CE">
-
-    </div>
-    <div class='calc_cell'>
         <input class='double button' type="button" value="." >
         <input class="backspace button" type='button' value="&larr;" >
         <input class="change button" type='button' value="+ / -" >
     </div>
+ <!--   <div class='calc_cell'>
+
+    </div>-->
 
 
 
@@ -51,6 +53,5 @@
 
 <script type="module" src="index.js"></script>
 <script type="module" src="Calculator.js"></script>
-
 </body>
 </html>

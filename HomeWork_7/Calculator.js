@@ -68,7 +68,6 @@ export default class Calculator {
 
                 return Number(this.#x).toFixed(8);
 
-
             case '-':
                 this.#x = Number(this.#x) - Number(this.#y);
 
@@ -78,7 +77,6 @@ export default class Calculator {
 
                 return Number(this.#x).toFixed(8);
 
-
             case '*':
                 this.#x = Number(this.#x) * Number(this.#y);
 
@@ -87,7 +85,6 @@ export default class Calculator {
                 }
 
                 return Number(this.#x).toFixed(8);
-
 
             case '/':
                 if (Number(this.#y) === 0) {
@@ -101,7 +98,6 @@ export default class Calculator {
                 }
 
                 return Number(this.#x).toFixed(8);
-
         }
 
     }
@@ -119,12 +115,14 @@ export default class Calculator {
                if (this.getX.includes('.') || this.getY.includes('.')){
                    return;
                }
+
                this.getNumber(num);
         }
     }
 
     removeNum() {
         if (this.#x === ""){
+            this.clearResult();
             return 0;
         }
 
@@ -135,10 +133,9 @@ export default class Calculator {
 
             if (this.#x === '') {
                 return '0';
-            } else {
-                return this.getX
             }
 
+            return this.getX;
         } else if (this.#x !== '' && this.#sign !== null && !this.#finish) {
             let removedNumber = this.#y.split('');
             removedNumber.pop();
@@ -146,10 +143,9 @@ export default class Calculator {
 
             if (this.#y === '') {
                 return '0';
-            } else {
-                return this.getY;
             }
 
+             return this.getY;
         } else if (this.#finish) {
             let removedNumber = this.#x.toString().split('');
             removedNumber.pop();
@@ -157,11 +153,10 @@ export default class Calculator {
 
             if (this.#x === '') {
                 return '0';
-            } else {
-                return this.getX;
             }
-        }
 
+            return this.getX;
+        }
     }
 
     changeNumberSign() {
@@ -170,11 +165,9 @@ export default class Calculator {
         }
 
         if (this.#y === '' && this.#sign === null) {
-            console.log(1)
-            return this.#x = this.#x * -1;
-        } else {
-            return this.#x = this.#x * -1;
+          return this.#x = this.#x * -1;
         }
 
+        return this.#x = this.#x * -1;
     }
 }

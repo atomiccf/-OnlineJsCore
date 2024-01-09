@@ -1,68 +1,56 @@
 import Calculator from './Calculator.js'
 
 const calc = new Calculator();
-const buttonNumber = document.querySelectorAll('.number');
-const buttonSign = document.querySelectorAll('.sing');
-const buttonResult = document.querySelector('.result');
-const buttonClear = document.querySelector('.clear');
-const buttonDouble = document.querySelector('.double');
-const buttonBackspace = document.querySelector('.backspace');
-const buttonChangeSign = document.querySelector('.change');
+const numberField = document.getElementById('number_cell');
+const signField = document.getElementById('sign_cell');
 document.getElementById("calc_output").innerHTML = 0;
 
-buttonNumber.forEach(item => {
-    item.addEventListener('click', (e) => {
-        calc.getNumber(e.currentTarget.value);
+numberField.addEventListener("click", (e)=> {
+    if (e.target.classList.contains('number')) {
+        calc.getNumber(e.target.value);
 
         if (calc.getY === "" && calc.getSign === null) {
             if (calc.getX === '') {
                 document.getElementById("calc_output").innerHTML = 0;
             } else {
-t
                 document.getElementById("calc_output").innerHTML = calc.getX;
             }
 
-        } else {
+            } else {
             document.getElementById("calc_output").innerHTML = calc.getY;
         }
-
-    });
+    }
 });
 
-buttonSign.forEach(item => {
-    let clicks = 0
-    item.addEventListener('click', (e) => {
-        console.log(clicks++)
-        calc.addSign(e.currentTarget.value);
+signField.addEventListener('click', (e)=>{
+    if (e.target.classList.contains('sing')) {
+        calc.addSign(e.target.value);
         document.getElementById("calc_output").innerHTML = calc.getSign;
-    });
+    }
+
+    if (e.target.classList.contains('result')) {
+        calc.setFinish = true;
+        document.getElementById("calc_output").innerHTML = calc.getResult();
+    }
+
+    if(e.target.classList.contains('double')) {
+        calc.toDouble(e.currentTarget.value);
+    }
+
+    if(e.target.classList.contains('clear')) {
+        document.getElementById("calc_output").innerHTML = calc.clearResult();
+    }
+
+    if(e.target.classList.contains('backspace')) {
+        document.getElementById("calc_output").innerHTML = calc.removeNum();
+    }
+
+    if(e.target.classList.contains('change')) {
+        document.getElementById("calc_output").textContent = calc.changeNumberSign();
+    }
+
 });
 
-
-buttonResult.addEventListener('click', () => {
-    calc.setFinish = true;
-    document.getElementById("calc_output").innerHTML = calc.getResult();
-});
-
-buttonDouble.addEventListener('click', (e) => {
-    calc.toDouble(e.currentTarget.value);
-});
-
-buttonClear.addEventListener('click', () => {
-     document.getElementById("calc_output").innerHTML = calc.clearResult();
-});
-
-buttonBackspace.addEventListener('click', () => {
-    document.getElementById("calc_output").innerHTML = calc.removeNum();
-
-});
-
-buttonChangeSign.addEventListener('click', () => {
-    console.log('+')
-
-    document.getElementById("calc_output").textContent = calc.changeNumberSign();
-
-})
 
 
 

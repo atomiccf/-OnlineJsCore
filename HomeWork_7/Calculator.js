@@ -171,6 +171,6 @@ export default class Calculator {
           return this.#x = this.#x * -1;
         }
 
-        return this.#x = this.#x * -1;
+        return this.#y = this.#y * -1;
     }
 }

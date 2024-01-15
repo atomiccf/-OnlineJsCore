@@ -16,7 +16,7 @@ numberField.addEventListener("click", (e)=> {
                 document.getElementById("calc_output").innerHTML = calc.getX;
             }
 
-            } else {
+        } else {
             document.getElementById("calc_output").innerHTML = calc.getY;
         }
     }

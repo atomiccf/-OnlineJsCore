@@ -1,4 +1,4 @@
-export default class Calculator {
+ class Calculator {
     #x = '';
     #y = '';
     #finish = false;
@@ -174,3 +174,5 @@ export default class Calculator {
         return this.#y = this.#y * -1;
     }
 }
+
+ export default Calculator;
